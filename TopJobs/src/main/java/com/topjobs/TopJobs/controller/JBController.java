@@ -9,41 +9,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.topjobs.TopJobs.Employeer;
-import com.topjobs.TopJobs.EmployeerService;
+import com.topjobs.TopJobs.Employer;
+import com.topjobs.TopJobs.EmployerService;
 
 @RestController
 public class JBController {
 	
 
 	@Autowired
-	private EmployeerService es;
+	private EmployerService es;
 	@RequestMapping("/TTD")
 	public String Hello(){
 		return "TTD";
 	}
-	@RequestMapping("/employeers")
-		public List<Employeer> getAllEmplyeers(){
-			return es.getAllEmplyeers();
+	@RequestMapping("/employers")
+		public List<Employer> getAllEmplyers(){
+			return es.getAllEmplyers();
 		}
-	@RequestMapping("/getemployeer/{name}")
-	public Employeer getEmployeer(@PathVariable String name){
-		return es.getEmployeer(name);
+	@RequestMapping("/getemployer/{email}")
+	public Employer getEmployer(@PathVariable String email){
+		return es.getEmployer(email);
 	}
-	@RequestMapping("/validateemployeer/{email}/{pw}")
+	@RequestMapping("/validateemployer/{email}/{pw}")
 	public String validate(@PathVariable String email,@PathVariable String pw){
 		return es.validatepw(email,pw);
 	}
-	@RequestMapping(method=RequestMethod.POST,value="/addemployeer")
-	public void addEmployeer(@RequestBody Employeer employeer){
-		es.addEmployeer(employeer);
+	@RequestMapping(method=RequestMethod.POST,value="/addemployer")
+	public void addEmployer(@RequestBody Employer employer){
+		es.addEmployer(employer);
 	}
-	@RequestMapping(method=RequestMethod.PUT,value="/upemployeer/{name}")
-	public void updateEmployeer(@RequestBody Employeer employeer,@PathVariable String name){
-		es.updateEmployeer(name,employeer);
+	@RequestMapping(method=RequestMethod.PUT,value="/upemployer/{email}")
+	public void updateEmployer(@RequestBody Employer employer,@PathVariable String email){
+		es.updateEmployer(email,employer);
 	}
-	@RequestMapping(method=RequestMethod.DELETE,value="/employeer/{email}")
-	public void deleteEmployeers(@PathVariable String email){
-		es.deleteEmployeer(email);
+	@RequestMapping(method=RequestMethod.DELETE,value="/employer/{email}")
+	public void deleteEmployers(@PathVariable String email){
+		es.deleteEmployer(email);
 	}
 }
