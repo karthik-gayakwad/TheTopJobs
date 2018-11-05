@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.topjobs.TopJobs.JSService;
+import com.topjobs.TopJobs.JobSeekerService;
 import com.topjobs.TopJobs.JobSeeker;
 
 @RestController
-public class JSController {
+public class JobSeekerController {
 	@Autowired
-	private JSService js;
+	private JobSeekerService js;
 	@RequestMapping("/TTD1")
 	public String Hello1(){
 		return "TTD";

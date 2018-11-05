@@ -2,6 +2,7 @@ package com.topjobs.TopJobs.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +14,7 @@ import com.topjobs.TopJobs.Employer;
 import com.topjobs.TopJobs.EmployerService;
 
 @RestController
-public class JBController {
+public class EmployerController {
 	
 
 	@Autowired

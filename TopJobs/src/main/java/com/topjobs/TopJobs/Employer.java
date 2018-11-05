@@ -1,63 +1,88 @@
 package com.topjobs.TopJobs;
 
+import java.util.Date;
+
 public class Employer {
-	String email;
-	String name;
-	String companyname;
-	String companysize;
-	String password;
-	String confrimpassword;
+	String employerEmail;
+	String employerFirstName;
+	String employerLastName;
+	String employerGender;
+	String employerDOB;
+	String employerCompany;
+	String employerCompanySize;
+	String employerPhone;
+	String employerPassword;
 	public Employer() {
 		super();
 	}
-	public Employer(String email, String name, String companyname, String companysize, String password,
-			String confrimpassword) {
+	public Employer(String employerEmail, String employerFirstName, String employerLastName, String employerGender,
+			String employerDOB, String employerCompany, String employerCompanySize, String employerPhone,
+			String employerPassword) {
 		super();
-		this.email = email;
-		this.name = name;
-		this.companyname = companyname;
-		this.companysize = companysize;
-		this.password = password;
-		this.confrimpassword = confrimpassword;
+		this.employerEmail = employerEmail;
+		this.employerFirstName = employerFirstName;
+		this.employerLastName = employerLastName;
+		this.employerGender = employerGender;
+		this.employerDOB = employerDOB;
+		this.employerCompany = employerCompany;
+		this.employerCompanySize = employerCompanySize;
+		this.employerPhone = employerPhone;
+		this.employerPassword = employerPassword;
 	}
-	public String getEmail() {
-		return email;
+	public String getEmployerEmail() {
+		return employerEmail;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmployerEmail(String employerEmail) {
+		this.employerEmail = employerEmail;
 	}
-	public String getName() {
-		return name;
+	public String getEmployerFirstName() {
+		return employerFirstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setEmployerFirstName(String employerFirstName) {
+		this.employerFirstName = employerFirstName;
 	}
-	public String getCompanyname() {
-		return companyname;
+	public String getEmployerLastName() {
+		return employerLastName;
 	}
-	public void setCompanyname(String companyname) {
-		this.companyname = companyname;
+	public void setEmployerLastName(String employerLastName) {
+		this.employerLastName = employerLastName;
 	}
-	public String getCompanysize() {
-		return companysize;
+	public String getEmployerGender() {
+		return employerGender;
 	}
-	public void setCompanysize(String companysize) {
-		this.companysize = companysize;
+	public void setEmployerGender(String employerGender) {
+		this.employerGender = employerGender;
 	}
-	public String getPassword() {
-		return password;
+	public String getEmployerDOB() {
+		return employerDOB;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setEmployerDOB(String employerDOB) {
+		this.employerDOB = employerDOB;
 	}
-	public String getConfrimpassword() {
-		return confrimpassword;
+	public String getEmployerCompany() {
+		return employerCompany;
 	}
-	public void setConfrimpassword(String confrimpassword) {
-		this.confrimpassword = confrimpassword;
+	public void setEmployerCompany(String employerCompany) {
+		this.employerCompany = employerCompany;
+	}
+	public String getEmployerCompanySize() {
+		return employerCompanySize;
+	}
+	public void setEmployerCompanySize(String employerCompanySize) {
+		this.employerCompanySize = employerCompanySize;
+	}
+	public String getEmployerPhone() {
+		return employerPhone;
+	}
+	public void setEmployerPhone(String employerPhone) {
+		this.employerPhone = employerPhone;
+	}
+	public String getEmployerPassword() {
+		return employerPassword;
+	}
+	public void setEmployerPassword(String employerPassword) {
+		this.employerPassword = employerPassword;
 	}
 	
 	
-	
-
 }

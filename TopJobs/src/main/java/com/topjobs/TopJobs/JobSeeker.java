@@ -2,52 +2,77 @@ package com.topjobs.TopJobs;
 
 public class JobSeeker {
 	
-	String email;
-	String name;
-	String phoneno;
-	String pw;
-	String cpw;
+	String jobseekerEmail;
+	String jobseekerFisrtName;
+	String jobseekerLastName;
+	String jobseekerGender;
+	String jobseekerDOB;
+	String jobseekerPhone;
+	String jobseekerPassword;
+	String jobseekerCity;
 	public JobSeeker() {
 		super();
 	}
-	public JobSeeker(String email, String name, String phoneno, String pw, String cpw) {
+	public JobSeeker(String jobseekerEmail, String jobseekerFisrtName, String jobseekerLastName, String jobseekerGender,
+			String jobseekerDOB, String jobseekerPhone, String jobseekerPassword, String jobseekerCity) {
 		super();
-		this.email = email;
-		this.name = name;
-		this.phoneno = phoneno;
-		this.pw = pw;
-		this.cpw = cpw;
+		this.jobseekerEmail = jobseekerEmail;
+		this.jobseekerFisrtName = jobseekerFisrtName;
+		this.jobseekerLastName = jobseekerLastName;
+		this.jobseekerGender = jobseekerGender;
+		this.jobseekerDOB = jobseekerDOB;
+		this.jobseekerPhone = jobseekerPhone;
+		this.jobseekerPassword = jobseekerPassword;
+		this.jobseekerCity = jobseekerCity;
 	}
-	public String getEmail() {
-		return email;
+	public String getJobseekerEmail() {
+		return jobseekerEmail;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setJobseekerEmail(String jobseekerEmail) {
+		this.jobseekerEmail = jobseekerEmail;
 	}
-	public String getName() {
-		return name;
+	public String getJobseekerFisrtName() {
+		return jobseekerFisrtName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setJobseekerFisrtName(String jobseekerFisrtName) {
+		this.jobseekerFisrtName = jobseekerFisrtName;
 	}
-	public String getPhoneno() {
-		return phoneno;
+	public String getJobseekerLastName() {
+		return jobseekerLastName;
 	}
-	public void setPhoneno(String phoneno) {
-		this.phoneno = phoneno;
+	public void setJobseekerLastName(String jobseekerLastName) {
+		this.jobseekerLastName = jobseekerLastName;
 	}
-	public String getPw() {
-		return pw;
+	public String getJobseekerGender() {
+		return jobseekerGender;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setJobseekerGender(String jobseekerGender) {
+		this.jobseekerGender = jobseekerGender;
 	}
-	public String getCpw() {
-		return cpw;
+	public String getJobseekerDOB() {
+		return jobseekerDOB;
 	}
-	public void setCpw(String cpw) {
-		this.cpw = cpw;
+	public void setJobseekerDOB(String jobseekerDOB) {
+		this.jobseekerDOB = jobseekerDOB;
+	}
+	public String getJobseekerPhone() {
+		return jobseekerPhone;
+	}
+	public void setJobseekerPhone(String jobseekerPhone) {
+		this.jobseekerPhone = jobseekerPhone;
+	}
+	public String getJobseekerPassword() {
+		return jobseekerPassword;
+	}
+	public void setJobseekerPassword(String jobseekerPassword) {
+		this.jobseekerPassword = jobseekerPassword;
+	}
+	public String getJobseekerCity() {
+		return jobseekerCity;
+	}
+	public void setJobseekerCity(String jobseekerCity) {
+		this.jobseekerCity = jobseekerCity;
 	}
 	
-
+	
 }
