@@ -83,6 +83,13 @@ public class Employer {
 	public void setEmployerPassword(String employerPassword) {
 		this.employerPassword = employerPassword;
 	}
+	@Override
+	public String toString() {
+		return "Employer [employerEmail=" + employerEmail + ", employerFirstName=" + employerFirstName
+				+ ", employerLastName=" + employerLastName + ", employerGender=" + employerGender + ", employerDOB="
+				+ employerDOB + ", employerCompany=" + employerCompany + ", employerCompanySize=" + employerCompanySize
+				+ ", employerPhone=" + employerPhone + ", employerPassword=" + employerPassword + "]";
+	}
 	
 	
 }

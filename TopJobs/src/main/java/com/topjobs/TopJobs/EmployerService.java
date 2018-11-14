@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.stereotype.Service;
 
@@ -43,12 +44,15 @@ public class EmployerService {
 		return employers.stream().filter(t->t.getEmployerEmail().equals(email)).findFirst().get();
 	}
 	public String validatepw(String email,String pw){
+		System.out.println(employers.get(2));
 		Employer emp=employers.stream().filter(t->t.getEmployerEmail().equals(email)).findFirst().get();
-		
+		try {
 		if(emp.getEmployerEmail().equals(email)  && emp.getEmployerPassword().equals(pw))
-			return "Login Success";
-		else
-			return "Login Failure";
+			return "{\"login\":\"Success\"}";
+		}catch (NoSuchElementException e) {
+			return "{\"login\":\"NotExists\"}";
+		}
+		return "{\"login\":\"Failure\"}";
 		
 	}
 }
