@@ -34,7 +34,7 @@ public class EmployerServiceImp implements EmployerService {
 		for(int i=0;i<employers.size();i++)
 		{
 			Employer t=employers.get(i);
-			if(t.getSEmail().equals(email)){
+			if(t.getsEmail().equals(email)){
 				employers.set(i, employer);
 				return;
 			}
@@ -43,21 +43,22 @@ public class EmployerServiceImp implements EmployerService {
 	
 	@Override
 	public void deleteEmployer(String email) {
-		employers.removeIf(t->t.getSEmail().equals(email));
+		employers.removeIf(t->t.getsEmail().equals(email));
 		}
 	
 	@Override
 	public Employer getEmployer(String email){
-		return employers.stream().filter(t->t.getSEmail().equals(email)).findFirst().get();
+		return employers.stream().filter(t->t.getsEmail().equals(email)).findFirst().get();
 	}
 	
 	@Override
 	public String validatepw(String email,String pw){
-		Employer emp=employers.stream().filter(t->t.getSEmail().equals(email)).findFirst().get();
-		
-		if(emp.getSEmail().equals(email)  && emp.getSPassword().equals(pw))
+		Employer emp=employers.stream().filter(t->t.getsEmail().equals(email)).findAny().orElse(null);
+		if(emp!=null) {
+		if(emp.getsEmail().equals(email)  && emp.getsPassword().equals(pw))
 			return "{\"login\":\"Success\"}";
-		else
+		}
+		
 			return "{\"login\":\"Failure\"}";
 		
 	}
