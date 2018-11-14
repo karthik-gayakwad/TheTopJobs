@@ -1,6 +1,7 @@
 package com.topjobs.model;
 
 public class Employer {
+
 	String SEmail;
 	String SFirstName;
 	String SName;
@@ -101,4 +102,11 @@ public class Employer {
 		SPassword = sPassword;
 	}
 	
+	@Override
+	public String toString() {
+		return "Employer [SEmail=" + SEmail + ", SFirstName=" + SFirstName + ", SName=" + SName + ", SGender=" + SGender
+				+ ", SDOB=" + SDOB + ", SCompany=" + SCompany + ", SCompanySize=" + SCompanySize + ", SPhone=" + SPhone
+				+ ", SPassword=" + SPassword + "]";
+	}
+
 }
