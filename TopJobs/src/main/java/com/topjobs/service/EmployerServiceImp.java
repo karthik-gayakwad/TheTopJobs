@@ -97,9 +97,9 @@ public class EmployerServiceImp implements EmployerService {
 		Employer emp=employers.stream().filter(t->t.getSEmail().equals(email)).findFirst().get();
 		
 		if(emp.getSEmail().equals(email)  && emp.getSPassword().equals(pw))
-			return "Login Success";
+			return "{\"login\":\"Success\"}";
 		else
-			return "Login Failure";
+			return "{\"login\":\"Failure\"}";
 		
 	}
 }

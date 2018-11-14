@@ -73,5 +73,11 @@ public class JobSeeker {
 	public void setSCity(String sCity) {
 		SCity = sCity;
 	}
+	@Override
+	public String toString() {
+		return "JobSeeker [SEmail=" + SEmail + ", SFisrtName=" + SFisrtName + ", SLastName=" + SLastName + ", SGender="
+				+ SGender + ", SDOB=" + SDOB + ", SPhone=" + SPhone + ", SPassword=" + SPassword + ", SCity=" + SCity
+				+ "]";
+	}
 
 }

@@ -13,7 +13,7 @@ import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Employer {
-	
+
 	@Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "employer_Sequence")
     @SequenceGenerator(name = "employer_Sequence", sequenceName = "EMPLOYER_SEQ", initialValue=1, allocationSize=1)
@@ -136,5 +136,13 @@ public class Employer {
 		this.sPhone = sPhone;
 		this.sPassword = sPassword;
 	}
+
+	@Override
+	public String toString() {
+		return "Employer [id=" + id + ", sEmail=" + sEmail + ", sFirstName=" + sFirstName + ", sName=" + sName
+				+ ", sGender=" + sGender + ", sDOB=" + sDOB + ", sCompany=" + sCompany + ", sCompanySize="
+				+ sCompanySize + ", sPhone=" + sPhone + ", sPassword=" + sPassword + "]";
+	}
 	
+
 }

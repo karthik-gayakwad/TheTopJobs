@@ -37,11 +37,16 @@ public class EmployerController {
 	public Employer getEmployer(@PathVariable String email){
 		return employerservice.getEmployer(email);
 	}
-	@RequestMapping("/validateemployer/{email}/{pw}")
-	public String validate(@PathVariable String email,@PathVariable String pw){
-		return employerservice.validatepw(email,pw);
+	@RequestMapping(method=RequestMethod.POST, value= "/api/validateemployer", produces= {"application/json"})
+	public ResponseEntity<String> validate(@RequestBody Employer employer){
+		//es.validatepw(employer.getEmployerEmail(),employer.getEmployerPassword());
+		System.out.println(employer.getSEmail());
+		System.out.println(employer.getSPassword());
+		System.out.println(employer);
+		return ResponseEntity.ok(employerservice.validatepw(employer.getSEmail(),employer.getSPassword()));
 	}
-	@RequestMapping(method=RequestMethod.POST,value="/api/addemployer")
+
+	@RequestMapping(method=RequestMethod.POST,value="/addemployer")
 	public void addEmployer(@RequestBody Employer employer){
 		employerservice.addEmployer(employer);
 	}
