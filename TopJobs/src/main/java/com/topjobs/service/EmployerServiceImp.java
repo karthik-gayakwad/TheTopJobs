@@ -5,12 +5,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.jackson.JsonObjectDeserializer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import com.topjobs.model.Employer;
+import com.topjobs.repository.EmployerRepository;
 
 @Service
 public class EmployerServiceImp implements EmployerService {
 	
+	 @Autowired
+	 private EmployerRepository employerRepository;
+	 
 	private List<Employer> employers = new ArrayList<>( Arrays.asList(
 			new Employer("vikram@gmail.com","Vikram","Vicky","MALE", "07/07/1996","sony", "1500","8562457892","vikram1"),
 			new Employer("vikram@gmail.com","virkam","vicky","MALE","07/07/1996","Sony","1500","7438981679","virkam1"),
@@ -19,14 +28,46 @@ public class EmployerServiceImp implements EmployerService {
 			new Employer("teli@gmail.com","Teli","P","FEMALE","09/07/1996","Sony","1500","8562457856","teli1")
 			));
 	
+	/*@Bean
+	@Override
+	public List<String> getAllEmployers(){
+		List<String> result = new ArrayList<String>();
+        List<Employer> employers = (List<Employer>) employerRepository.findAll();
+        for (Employer employer : employers) {
+            result.add(employer.getSFirstName());
+        }
+        return result;
+	}*/
+	
+	@Bean
 	@Override
 	public List<Employer> getAllEmployers(){
-		return employers;	
+		List<Employer> result = new ArrayList<Employer>();
+        List<Employer> employers = (List<Employer>) employerRepository.findAll();
+        for (Employer employer : employers) {
+            result.add(employer);
+        }
+        return result;
 	}
 	
 	@Override
 	public void addEmployer(Employer employer){
-		employers.add(employer);
+		
+		employerRepository.save(employer);
+				
+		/*JSONObject jsonObject = new JSONObject(employer);
+		
+		try {
+			String email = jsonObject.getString("s_email");
+			String firstName = jsonObject.getString("s_first_name");
+			
+			employer.setSEmail(email);
+			employer.setSFirstName(firstName);
+			System.out.println("\n\n\n"+employer.getSEmail());
+			employerRepository.save(employer);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}	*/	
 	}
 
 	@Override 

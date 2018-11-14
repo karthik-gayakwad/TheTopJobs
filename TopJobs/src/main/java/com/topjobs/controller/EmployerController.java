@@ -4,12 +4,15 @@ package com.topjobs.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.topjobs.model.Employer;
+import com.topjobs.service.EmployerService;
 import com.topjobs.service.EmployerServiceImp;
 
 
@@ -18,13 +21,16 @@ public class EmployerController {
 	
 
 	@Autowired
-	private EmployerServiceImp employerservice;
-	@RequestMapping("/TTD")
+	private EmployerService employerservice;
+	
+	
+	@RequestMapping("/api/TTD")
 	public String Hello(){
 		return "TTD";
 	}
-	@RequestMapping("/employers")
-		public List<Employer> getAllEmplyers(){
+	
+	@RequestMapping("/api/employers")
+		public List<Employer> getAllEmployer(){
 			return employerservice.getAllEmployers();
 		}
 	@RequestMapping("/getemployer/{email}")
@@ -35,7 +41,7 @@ public class EmployerController {
 	public String validate(@PathVariable String email,@PathVariable String pw){
 		return employerservice.validatepw(email,pw);
 	}
-	@RequestMapping(method=RequestMethod.POST,value="/addemployer")
+	@RequestMapping(method=RequestMethod.POST,value="/api/addemployer")
 	public void addEmployer(@RequestBody Employer employer){
 		employerservice.addEmployer(employer);
 	}
