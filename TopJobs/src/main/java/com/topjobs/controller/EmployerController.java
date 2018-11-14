@@ -7,12 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.topjobs.model.Employer;
-import com.topjobs.service.EmployerServiceImp;
+import com.topjobs.service.EmployerService;
 
 @CrossOrigin(origins="*",maxAge=3600)
 @RestController
@@ -20,13 +21,15 @@ public class EmployerController {
 	
 
 	@Autowired
-	private EmployerServiceImp employerservice;
+	private EmployerService employerservice;
+	
 	@RequestMapping("/api/TTD")
 	public String Hello(){
 		return "TTD";
 	}
+
 	@RequestMapping("/api/employers")
-		public List<Employer> getAllEmplyers(){
+		public List<Employer> getAllEmployer(){
 			return employerservice.getAllEmployers();
 		}
 	@RequestMapping("/api/getemployer/{email}")
@@ -41,10 +44,7 @@ public class EmployerController {
 		System.out.println(employer);
 		return ResponseEntity.ok(employerservice.validatepw(employer.getsEmail(),employer.getsPassword()));
 	}
-	/*@RequestMapping("/validateemployer/{email}/{pw}")
-	public String validate(@PathVariable String email,@PathVariable String pw){
-		return employerservice.validatepw(email,pw);
-	}*/
+
 	@RequestMapping(method=RequestMethod.POST,value="/api/addemployer")
 	public Employer addEmployer(@RequestBody Employer employer){
 		System.out.println(employer);

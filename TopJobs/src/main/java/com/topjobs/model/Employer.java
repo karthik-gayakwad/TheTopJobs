@@ -1,25 +1,56 @@
 package com.topjobs.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
+@Entity
 public class Employer {
 
+	@Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "employer_Sequence")
+    @SequenceGenerator(name = "employer_Sequence", sequenceName = "EMPLOYER_SEQ", initialValue=1, allocationSize=1)
+    private Long id;
+	
+	@Column(name = "sEmail")
 	String sEmail;
+	
+	@Column(name = "sFirstName")
 	String sFirstName;
+	
+	@Column(name = "sName")
 	String sLastName;
+	
+	@Column(name = "sGender")
 	String sGender;
+	
+	@Column(name = "sDOB")
 	String sDOB;
+	
+	@Column(name = "sCompany")
 	String sCompany;
+	
+	@Column(name = "sCompanySize")
 	String sCompanySize;
+	
+	@Column(name = "sPhone")
 	String sPhone;
+	
+	@Column(name = "sPassword")
 	String sPassword;
+
+	@Column(name = "sIsActive")
 	Boolean sIsActive;
 	
-	public Employer() {
-		
-	}
-	
+
+
 	public Employer(String sEmail, String sFirstName, String sName, String sGender, String sDOB, String sCompany,
-			String sCompanySize, String sPhone, String sPassword) {
+			String sCompanySize, String sPhone, String sPassword,Boolean sIsActive) {
 		super();
+
 		this.sEmail = sEmail;
 		this.sFirstName = sFirstName;
 		this.sLastName = sName;
@@ -29,6 +60,7 @@ public class Employer {
 		this.sCompanySize = sCompanySize;
 		this.sPhone = sPhone;
 		this.sPassword = sPassword;
+		this.sIsActive = sIsActive;
 	}
 
 	public String getsEmail() {
@@ -113,10 +145,12 @@ public class Employer {
 
 	@Override
 	public String toString() {
-		return "Employer [sEmail=" + sEmail + ", sFirstName=" + sFirstName + ", sLastName=" + sLastName + ", sGender="
-				+ sGender + ", sDOB=" + sDOB + ", sCompany=" + sCompany + ", sCompanySize=" + sCompanySize + ", sPhone="
-				+ sPhone + ", sPassword=" + sPassword + ", sIsActive=" + sIsActive + "]";
+
+		return "Employer [id=" + id + ", sEmail=" + sEmail + ", sFirstName=" + sFirstName + ", sName=" + sLastName
+				+ ", sGender=" + sGender + ", sDOB=" + sDOB + ", sCompany=" + sCompany + ", sCompanySize="
+				+ sCompanySize + ", sPhone=" + sPhone + ", sPassword=" + sPassword + "]";
 	}
+	
 
 	
 
