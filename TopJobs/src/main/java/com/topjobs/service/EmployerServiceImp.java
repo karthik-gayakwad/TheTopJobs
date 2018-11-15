@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jackson.JsonObjectDeserializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.topjobs.model.Employer;
 import com.topjobs.repository.EmployerRepository;
@@ -55,41 +57,32 @@ public class EmployerServiceImp implements EmployerService {
 		
 		employerRepository.save(employer);
 				
-		/*JSONObject jsonObject = new JSONObject(employer);
 		
-		try {
-			String email = jsonObject.getString("s_email");
-			String firstName = jsonObject.getString("s_first_name");
-			
-			employer.setSEmail(email);
-			employer.setSFirstName(firstName);
-			System.out.println("\n\n\n"+employer.getSEmail());
-			employerRepository.save(employer);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}	*/	
 	}
 
 	@Override 
-	public void updateEmployer(String email, Employer employer) {
-		for(int i=0;i<employers.size();i++)
-		{
-			Employer t=employers.get(i);
-			if(t.getSEmail().equals(email)){
-				employers.set(i, employer);
-				return;
-			}
-		}
+	public ResponseEntity<Object> updateEmployer(String id, Employer employer) {
+		
+		
+		Optional<Employer> employerOptional = employerRepository.findById(Long.parseLong(id));
+
+		if (!employerOptional.isPresent())
+			return ResponseEntity.notFound().build();
+
+		employerRepository.deleteById(Long.parseLong(id));
+		employerRepository.save(employer);
+
+		return ResponseEntity.noContent().build();
 	}
 	
 	@Override
-	public void deleteEmployer(String email) {
-		employers.removeIf(t->t.getSEmail().equals(email));
+	public void deleteEmployer(Long id) {
+		employerRepository.deleteById(id);
 		}
 	
 	@Override
-	public Employer getEmployer(String email){
-		return employers.stream().filter(t->t.getSEmail().equals(email)).findFirst().get();
+	public Optional<Employer> getEmployer(Long id){
+		return employerRepository.findById(id);
 	}
 	
 	@Override
