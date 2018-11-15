@@ -1,6 +1,9 @@
 package com.topjobs.service;
 
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
 
 import com.topjobs.model.Employer;
 
@@ -10,11 +13,11 @@ public interface EmployerService {
 	
 	public void addEmployer(Employer employer);
 	
-	public void updateEmployer(String email,Employer employer);
+	public ResponseEntity<Object> updateEmployer(String id,Employer employer);
 			
-	public void deleteEmployer(String email);
+	public void deleteEmployer(Long id);
 			
-	public Employer getEmployer(String email);
+	public Optional<Employer> getEmployer(Long id);
 
 	public String validatepw(String email,String password);
 }

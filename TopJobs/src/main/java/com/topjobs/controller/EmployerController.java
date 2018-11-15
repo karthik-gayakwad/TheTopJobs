@@ -2,12 +2,12 @@ package com.topjobs.controller;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,19 +23,37 @@ public class EmployerController {
 	@Autowired
 	private EmployerService employerservice;
 	
-	@RequestMapping("/api/TTD")
-	public String Hello(){
-		return "TTD";
-	}
-
-	@RequestMapping("/api/employers")
+	//List All
+	@RequestMapping(method=RequestMethod.GET, value="/api/employers")
 		public List<Employer> getAllEmployer(){
 			return employerservice.getAllEmployers();
 		}
-	@RequestMapping("/api/getemployer/{email}")
-	public Employer getEmployer(@PathVariable String email){
-		return employerservice.getEmployer(email);
+	
+	//Update
+	@RequestMapping(method=RequestMethod.PUT, value= "/api/employers_update/{id}")
+	public void update(@PathVariable String id, @RequestBody Employer employer) {
+		employerservice.updateEmployer(id, employer);
 	}
+	
+	@RequestMapping("/api/getemployer/{email}")
+	public Optional<Employer> getEmployer(@PathVariable String email){
+		return employerservice.getEmployer(1L);
+
+	}
+	
+	//Delete
+	@RequestMapping(method=RequestMethod.DELETE, value= "/api/employers_delete/{id}")
+	public void delete(@PathVariable String id) {
+		employerservice.deleteEmployer(Long.parseLong(id));
+	}
+	
+	//Get by ID
+	@RequestMapping(method=RequestMethod.GET, value="/getemployer/{id}")
+	public Optional<Employer> getEmployer(@PathVariable Long id){
+		return employerservice.getEmployer(id);
+	}
+	
+	
 	@RequestMapping(method=RequestMethod.POST, value="/api/validateemployer",headers="Accept=application/json", produces={"application/json"})
 	public ResponseEntity<String> validate(@RequestBody Employer employer){
 		//es.validatepw(employer.getEmployerEmail(),employer.getEmployerPassword());
@@ -44,7 +62,7 @@ public class EmployerController {
 		System.out.println(employer);
 		return ResponseEntity.ok(employerservice.validatepw(employer.getsEmail(),employer.getsPassword()));
 	}
-
+	
 	@RequestMapping(method=RequestMethod.POST,value="/api/addemployer")
 	public Employer addEmployer(@RequestBody Employer employer){
 		System.out.println(employer);
@@ -57,6 +75,7 @@ public class EmployerController {
 	}
 	@RequestMapping(method=RequestMethod.DELETE,value="/employer/{email}")
 	public void deleteEmployers(@PathVariable String email){
-		employerservice.deleteEmployer(email);
+		employerservice.deleteEmployer(1L);
 	}
+
 }
