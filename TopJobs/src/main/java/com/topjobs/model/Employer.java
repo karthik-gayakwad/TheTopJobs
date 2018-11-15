@@ -6,10 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-/*
-{"SEmail":"teli.pooja@gmail.com","SFirstName":"Pooja","SName":"Teli","SGender":"Female","SCompany":"Sony","SCompanySize":"2000","SPhone":"857473784","SPassword":"Pooja"}
-
-*/
 
 @Entity
 public class Employer {
@@ -26,7 +22,7 @@ public class Employer {
 	String sFirstName;
 	
 	@Column(name = "sName")
-	String sName;
+	String sLastName;
 	
 	@Column(name = "sGender")
 	String sGender;
@@ -45,104 +41,117 @@ public class Employer {
 	
 	@Column(name = "sPassword")
 	String sPassword;
+
+	@Column(name = "sIsActive")
+	Boolean sIsActive;
 	
-	public Employer() {
-		
+
+
+	public Employer(String sEmail, String sFirstName, String sName, String sGender, String sDOB, String sCompany,
+			String sCompanySize, String sPhone, String sPassword,Boolean sIsActive) {
+		super();
+
+		this.sEmail = sEmail;
+		this.sFirstName = sFirstName;
+		this.sLastName = sName;
+		this.sGender = sGender;
+		this.sDOB = sDOB;
+		this.sCompany = sCompany;
+		this.sCompanySize = sCompanySize;
+		this.sPhone = sPhone;
+		this.sPassword = sPassword;
+		this.sIsActive = sIsActive;
 	}
 
-	public String getSEmail() {
+	public String getsEmail() {
 		return sEmail;
 	}
 
-	public void setSEmail(String sEmail) {
+	public void setsEmail(String sEmail) {
 		this.sEmail = sEmail;
 	}
 
-	public String getSFirstName() {
+	public String getsFirstName() {
 		return sFirstName;
 	}
 
-	public void setSFirstName(String sFirstName) {
+	public void setsFirstName(String sFirstName) {
 		this.sFirstName = sFirstName;
 	}
 
-	public String getSName() {
-		return sName;
+	public String getsLastName() {
+		return sLastName;
 	}
 
-	public void setSName(String sName) {
-		this.sName = sName;
+	public void setsLastName(String sLastName) {
+		this.sLastName = sLastName;
 	}
 
-	public String getSGender() {
+	public String getsGender() {
 		return sGender;
 	}
 
-	public void setSGender(String sGender) {
+	public void setsGender(String sGender) {
 		this.sGender = sGender;
 	}
 
-	public String getSDOB() {
+	public String getsDOB() {
 		return sDOB;
 	}
 
-	public void setSDOB(String sDOB) {
+	public void setsDOB(String sDOB) {
 		this.sDOB = sDOB;
 	}
 
-	public String getSCompany() {
+	public String getsCompany() {
 		return sCompany;
 	}
 
-	public void setSCompany(String sCompany) {
+	public void setsCompany(String sCompany) {
 		this.sCompany = sCompany;
 	}
 
-	public String getSCompanySize() {
+	public String getsCompanySize() {
 		return sCompanySize;
 	}
 
-	public void setSCompanySize(String sCompanySize) {
+	public void setsCompanySize(String sCompanySize) {
 		this.sCompanySize = sCompanySize;
 	}
 
-	public String getSPhone() {
+	public String getsPhone() {
 		return sPhone;
 	}
 
-	public void setSPhone(String sPhone) {
+	public void setsPhone(String sPhone) {
 		this.sPhone = sPhone;
 	}
 
-	public String getSPassword() {
+	public String getsPassword() {
 		return sPassword;
 	}
 
-	public void setSPassword(String sPassword) {
+	public void setsPassword(String sPassword) {
 		this.sPassword = sPassword;
 	}
 
-	public Employer(String sEmail, String sFirstName, String sName, String sGender, String sDOB, String sCompany,
-			String sCompanySize, String sPhone, String sPassword) {
-		super();
-		
-		this.sEmail = sEmail;
-		this.sFirstName = sFirstName;
-		this.sName = sName;
-		this.sGender = sGender;
-		this.sDOB = sDOB;
-		this.sCompany = sCompany;
-		this.sCompanySize = sCompanySize;
-		this.sPhone = sPhone;
-		this.sPassword = sPassword;
+	public Boolean getsIsActive() {
+		return sIsActive;
+	}
+
+	public void setsIsActive(Boolean sIsActive) {
+		this.sIsActive = sIsActive;
 	}
 
 	@Override
 	public String toString() {
-		return "Employer [id=" + id + ", sEmail=" + sEmail + ", sFirstName=" + sFirstName + ", sName=" + sName
+
+		return "Employer [id=" + id + ", sEmail=" + sEmail + ", sFirstName=" + sFirstName + ", sName=" + sLastName
 				+ ", sGender=" + sGender + ", sDOB=" + sDOB + ", sCompany=" + sCompany + ", sCompanySize="
 				+ sCompanySize + ", sPhone=" + sPhone + ", sPassword=" + sPassword + "]";
 	}
+	
+
 	
 
 }
