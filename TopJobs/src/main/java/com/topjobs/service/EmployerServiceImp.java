@@ -21,11 +21,11 @@ public class EmployerServiceImp implements EmployerService {
 	 private EmployerRepository employerRepository;
 	 
 	private List<Employer> employers = new ArrayList<>( Arrays.asList(
-			new Employer("vikram@gmail.com","Vikram","Vicky","MALE", "07/07/1996","sony", "1500","8562457892","vikram1",true),
-			new Employer("vikram@gmail.com","virkam","vicky","MALE","07/07/1996","Sony","1500","7438981679","virkam1",false),
-			new Employer("karthik@gmail.com","Karthik","S","MALE","08/23/1996","TCS","2500","8743983268","karthik1",true),
-			new Employer("pooja@gmail.com","Pooja","J","FEMALE","08/08/1998","Accenture","3500","8562457892","pooja1",true),
-			new Employer("teli@gmail.com","Teli","P","FEMALE","09/07/1996","Sony","1500","8562457856","teli1",true)
+			new Employer("vikram@gmail.com","Vikram","Vicky","MALE", "07/07/1996","sony", "1500","8562457892","vikram1",true,"employer"),
+			new Employer("vikram@gmail.com","virkam","vicky","MALE","07/07/1996","Sony","1500","7438981679","virkam1",false,"jobseeker"),
+			new Employer("karthik@gmail.com","Karthik","S","MALE","08/23/1996","TCS","2500","8743983268","karthik1",true,"employer"),
+			new Employer("pooja@gmail.com","Pooja","J","FEMALE","08/08/1998","Accenture","3500","8562457892","pooja1",true,"jobseeker"),
+			new Employer("teli@gmail.com","Teli","P","FEMALE","09/07/1996","Sony","1500","8562457856","teli1",true,"employer")
 			));
 	
 	
@@ -72,7 +72,7 @@ public class EmployerServiceImp implements EmployerService {
 	public String validatepw(String email,String pw){
 		Employer emp=employers.stream().filter(t->t.getsEmail().equals(email)).findAny().orElse(null);
 		if(emp!=null) {
-		if(emp.getsEmail().equals(email)  && emp.getsPassword().equals(pw))
+		if(emp.getsEmail().equals(email)  && emp.getsPassword().equals(pw)) //&& emp.getsUserType().equals("employer"))
 			return "{\"login\":\"Success\"}";
 		}
 		

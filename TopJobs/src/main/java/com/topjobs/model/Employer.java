@@ -45,10 +45,14 @@ public class Employer {
 	@Column(name = "sIsActive")
 	Boolean sIsActive;
 	
-
+	@Column(name = "sUserType")
+	String sUserType;
+	
+	public Employer() {
+	}
 
 	public Employer(String sEmail, String sFirstName, String sName, String sGender, String sDOB, String sCompany,
-			String sCompanySize, String sPhone, String sPassword,Boolean sIsActive) {
+			String sCompanySize, String sPhone, String sPassword,Boolean sIsActive,String sUserType) {
 		super();
 
 		this.sEmail = sEmail;
@@ -61,6 +65,7 @@ public class Employer {
 		this.sPhone = sPhone;
 		this.sPassword = sPassword;
 		this.sIsActive = sIsActive;
+		this.sUserType = sUserType;
 	}
 
 	public String getsEmail() {
@@ -143,13 +148,23 @@ public class Employer {
 		this.sIsActive = sIsActive;
 	}
 
+	public String getsUserType() {
+		return sUserType;
+	}
+
+	public void setsUserType(String sUserType) {
+		this.sUserType = sUserType;
+	}
+
 	@Override
 	public String toString() {
-
-		return "Employer [id=" + id + ", sEmail=" + sEmail + ", sFirstName=" + sFirstName + ", sName=" + sLastName
+		return "Employer [id=" + id + ", sEmail=" + sEmail + ", sFirstName=" + sFirstName + ", sLastName=" + sLastName
 				+ ", sGender=" + sGender + ", sDOB=" + sDOB + ", sCompany=" + sCompany + ", sCompanySize="
-				+ sCompanySize + ", sPhone=" + sPhone + ", sPassword=" + sPassword + "]";
+				+ sCompanySize + ", sPhone=" + sPhone + ", sPassword=" + sPassword + ", sIsActive=" + sIsActive
+				+ ", sUserType=" + sUserType + "]";
 	}
+
+	
 	
 
 	
