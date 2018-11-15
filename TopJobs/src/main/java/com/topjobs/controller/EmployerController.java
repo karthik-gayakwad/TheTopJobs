@@ -69,11 +69,11 @@ public class EmployerController {
 		employerservice.addEmployer(employer);
 		return employer;
 	}
-	@RequestMapping(method=RequestMethod.PUT,value="/upemployer/{email}")
+	@RequestMapping(method=RequestMethod.PUT,value="/api/upemployer/{email}")
 	public void updateEmployer(@RequestBody Employer employer,@PathVariable String email){
 		employerservice.updateEmployer(email,employer);
 	}
-	@RequestMapping(method=RequestMethod.DELETE,value="/employer/{email}")
+	@RequestMapping(method=RequestMethod.DELETE,value="/api/employer/{email}")
 	public void deleteEmployers(@PathVariable String email){
 		employerservice.deleteEmployer(1L);
 	}
