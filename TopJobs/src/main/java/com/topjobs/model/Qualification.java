@@ -126,7 +126,7 @@ public class Qualification implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Qualification [id=" + id + ", degree=" + degree + ", major=" + major + ", school=" + school
+		return "Qualification [id=" + qualification_id + ", degree=" + degree + ", major=" + major + ", school=" + school
 				+ ", university=" + university + ", startYear=" + startYear + ", endYear=" + endYear + ", cgpa=" + cgpa
 				+ "]";
 	}
