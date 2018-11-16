@@ -38,12 +38,6 @@ public class Employer {
 	@Column(name = "sDOB")
 	String sDOB;
 
-	/*
-	 * @Column(name = "sCompany") String sCompany;
-	 * 
-	 * @Column(name = "sCompanySize") String sCompanySize;
-	 */
-
 	@Column(name = "sPhone")
 	String sPhone;
 
@@ -52,6 +46,9 @@ public class Employer {
 
 	@Column(name = "sIsActive")
 	Boolean sIsActive;
+	
+	@Column(name = "sUserType")
+	String sUserType;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "company_id", nullable = false)
@@ -76,7 +73,8 @@ public class Employer {
 	}
 
 	public Employer(String sEmail, String sFirstName, String sName, String sGender, String sDOB, String sPhone,
-			String sPassword, Boolean sIsActive) {
+			String sPassword, Boolean sIsActive,String sUserType) {
+
 		super();
 
 		this.sEmail = sEmail;
@@ -84,12 +82,10 @@ public class Employer {
 		this.sLastName = sName;
 		this.sGender = sGender;
 		this.sDOB = sDOB;
-		/*
-		 * this.sCompany = sCompany; this.sCompanySize = sCompanySize;
-		 */
 		this.sPhone = sPhone;
 		this.sPassword = sPassword;
 		this.sIsActive = sIsActive;
+		this.sUserType = sUserType;
 	}
 
 	public String getsEmail() {
@@ -132,17 +128,6 @@ public class Employer {
 		this.sDOB = sDOB;
 	}
 
-	/*
-	 * public String getsCompany() { return sCompany; }
-	 * 
-	 * public void setsCompany(String sCompany) { this.sCompany = sCompany; }
-	 * 
-	 * public String getsCompanySize() { return sCompanySize; }
-	 * 
-	 * public void setsCompanySize(String sCompanySize) { this.sCompanySize =
-	 * sCompanySize; }
-	 */
-
 	public String getsPhone() {
 		return sPhone;
 	}
@@ -166,12 +151,20 @@ public class Employer {
 	public void setsIsActive(Boolean sIsActive) {
 		this.sIsActive = sIsActive;
 	}
+	public String getsUserType() {
+		return sUserType;
+	}
 
+	public void setsUserType(String sUserType) {
+		this.sUserType = sUserType;
+	}
+	
 	@Override
 	public String toString() {
-
-		return "Employer [id=" + employer_id + ", sEmail=" + sEmail + ", sFirstName=" + sFirstName + ", sName=" + sLastName
-				+ ", sGender=" + sGender + ", sDOB=" + sDOB + ", sPhone=" + sPhone + ", sPassword=" + sPassword + "]";
+		return "Employer [id=" + employer_id + ", sEmail=" + sEmail + ", sFirstName=" + sFirstName + ", sLastName=" + sLastName
+				+ ", sGender=" + sGender + ", sDOB=" + sDOB +  ", sPhone=" + sPhone + ", sPassword=" + sPassword + ", sIsActive=" + sIsActive
+				+ ", sUserType=" + sUserType + "]";
+	
 	}
 
 }

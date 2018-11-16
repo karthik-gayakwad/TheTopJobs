@@ -21,8 +21,9 @@ public class EmployerServiceImp implements EmployerService {
 	
 	 @Autowired
 	 private EmployerRepository employerRepository;
-	 
+
 	private List<Employer> employers = new ArrayList<>( );
+
 	
 	
 	
@@ -72,7 +73,7 @@ public class EmployerServiceImp implements EmployerService {
 	public String validatepw(String email,String pw){
 		Employer emp=employers.stream().filter(t->t.getsEmail().equals(email)).findAny().orElse(null);
 		if(emp!=null) {
-		if(emp.getsEmail().equals(email)  && emp.getsPassword().equals(pw))
+		if(emp.getsEmail().equals(email)  && emp.getsPassword().equals(pw)) //&& emp.getsUserType().equals("employer"))
 			return "{\"login\":\"Success\"}";
 		}
 		

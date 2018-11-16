@@ -33,11 +33,11 @@ insert into Company(company_id, s_Company,s_Company_Size) values (COMPANY_SEQ.ne
 insert into Company(company_id, s_Company,s_Company_Size) values (COMPANY_SEQ.nextval,'RobertBosch','2000')
 insert into Company(company_id, s_Company,s_Company_Size) values (COMPANY_SEQ.nextval,'Oracle','7000')
 
-insert into Employer(employer_id,company_id,s_Email,s_First_Name,s_Name,s_Gender,sDOB,s_Phone,s_Password) values (EMPLOYER_SEQ.nextval,1,'teli.pooja@gmail.com','Pooja','Teli','Female','14/01/1996','9875674737','pooja');
-insert into Employer(employer_id,company_id,s_Email,s_First_Name,s_Name,s_Gender,sDOB,s_Phone,s_Password) values (EMPLOYER_SEQ.nextval,2,'raamsharma@gmail.com','Raam','Sharma','Male','14/05/1986','6574847737','raam');
-insert into Employer(employer_id,company_id,s_Email,s_First_Name,s_Name,s_Gender,sDOB,s_Phone,s_Password) values (EMPLOYER_SEQ.nextval,2,'shreepatil@gmail.com','Shree','Patil','female','19/03/2000','7282674897','shree');
-insert into Employer(employer_id,company_id,s_Email,s_First_Name,s_Name,s_Gender,sDOB,s_Phone,s_Password) values (EMPLOYER_SEQ.nextval,3,'anushakiran@gmail.com','anusha','Kiran','female','24/03/1993','8837674733','anusha');
-insert into Employer(employer_id,company_id,s_Email,s_First_Name,s_Name,s_Gender,sDOB,s_Phone,s_Password) values (EMPLOYER_SEQ.nextval,4,'shivamprasad@gmail.com','Shivam','Prasad','Male','11/11/1995','8374827389','shivam');
+insert into Employer(employer_id,company_id,s_Email,s_First_Name,s_Name,s_Gender,sDOB,s_Phone,s_Password,s_Is_Active,s_User_Type) values (EMPLOYER_SEQ.nextval,1,'teli.pooja@gmail.com','Pooja','Teli','Female','14/01/1996','9875674737','pooja',true,'Employer');
+insert into Employer(employer_id,company_id,s_Email,s_First_Name,s_Name,s_Gender,sDOB,s_Phone,s_Password,s_Is_Active,s_User_Type) values (EMPLOYER_SEQ.nextval,2,'raamsharma@gmail.com','Raam','Sharma','Male','14/05/1986','6574847737','raam',false,'Job-seeker');
+insert into Employer(employer_id,company_id,s_Email,s_First_Name,s_Name,s_Gender,sDOB,s_Phone,s_Password,s_Is_Active,s_User_Type) values (EMPLOYER_SEQ.nextval,2,'shreepatil@gmail.com','Shree','Patil','female','19/03/2000','7282674897','shree',true,'Employer');
+insert into Employer(employer_id,company_id,s_Email,s_First_Name,s_Name,s_Gender,sDOB,s_Phone,s_Password,s_Is_Active,s_User_Type) values (EMPLOYER_SEQ.nextval,3,'anushakiran@gmail.com','anusha','Kiran','female','24/03/1993','8837674733','anusha',false,'Job-seeker');
+insert into Employer(employer_id,company_id,s_Email,s_First_Name,s_Name,s_Gender,sDOB,s_Phone,s_Password,s_Is_Active,s_User_Type) values (EMPLOYER_SEQ.nextval,4,'shivamprasad@gmail.com','Shivam','Prasad','Male','11/11/1995','8374827389','shivam',true,'Job-seeker');
 
 select * from Employer;
 
