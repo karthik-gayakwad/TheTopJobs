@@ -108,5 +108,12 @@ public class Qualification {
 		this.endYear = endYear;
 		this.cgpa = cgpa;
 	}
+
+	@Override
+	public String toString() {
+		return "Qualification [id=" + id + ", degree=" + degree + ", major=" + major + ", school=" + school
+				+ ", university=" + university + ", startYear=" + startYear + ", endYear=" + endYear + ", cgpa=" + cgpa
+				+ "]";
+	}
 	
 }

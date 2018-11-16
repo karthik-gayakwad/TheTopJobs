@@ -120,4 +120,12 @@ public class WorkExperience {
 		this.endDate = endDate;
 		this.description = description;
 	}
+
+	@Override
+	public String toString() {
+		return "WorkExperience [id=" + id + ", jobTitle=" + jobTitle + ", companyName=" + companyName + ", city=" + city
+				+ ", state=" + state + ", country=" + country + ", startDate=" + startDate + ", endDate=" + endDate
+				+ ", description=" + description + "]";
+	}
+	
 }
