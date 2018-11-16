@@ -2,9 +2,12 @@ package com.topjobs.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -13,7 +16,7 @@ public class WorkExperience {
 	@Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "experience_Sequence")
     @SequenceGenerator(name = "experience_Sequence", sequenceName = "EXPERIENCE_SEQ", initialValue=1, allocationSize=1)
-    private Long id;
+    private Long experience_id;
 	
 	@Column(name = "jobTitle")
 	String jobTitle;
@@ -38,6 +41,10 @@ public class WorkExperience {
 	
 	@Column(name = "description")
 	String description;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "employer_id", nullable = false)
+	private Employer employer;
 	
 	public WorkExperience() {
 		
@@ -106,6 +113,7 @@ public class WorkExperience {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	
 	public WorkExperience(String jobTitle, String companyName, String city, String state, String country, String startDate,String endDate,
 			String description) {

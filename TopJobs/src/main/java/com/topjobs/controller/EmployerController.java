@@ -63,13 +63,14 @@ public class EmployerController {
 		return ResponseEntity.ok(employerservice.validatepw(employer.getsEmail(),employer.getsPassword()));
 	}
 	
+	//Add
 	@RequestMapping(method=RequestMethod.POST,value="/api/addemployer")
 	public Employer addEmployer(@RequestBody Employer employer){
 		System.out.println(employer);
 		employerservice.addEmployer(employer);
 		return employer;
 	}
-	@RequestMapping(method=RequestMethod.PUT,value="/api/upemployer/{email}")
+
 	public void updateEmployer(@RequestBody Employer employer,@PathVariable String email){
 		employerservice.updateEmployer(email,employer);
 	}
