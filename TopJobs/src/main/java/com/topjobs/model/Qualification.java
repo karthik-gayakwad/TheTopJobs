@@ -1,23 +1,33 @@
 package com.topjobs.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-public class Qualification {
+//@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"degree","major"}) })
+public class Qualification implements Serializable{
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "qualification_Sequence")
     @SequenceGenerator(name = "qualification_Sequence", sequenceName = "QUALIFICATION_SEQ", initialValue=1, allocationSize=1)
-    private Long id;
+    private Long qualification_id;
 	
+//	@Id
 	@Column(name = "degree")
 	String degree;
 	
+//	@Id
 	@Column(name = "major")
 	String major;
 	
@@ -35,6 +45,11 @@ public class Qualification {
 	
 	@Column(name = "cgpa")
 	float cgpa;
+	
+//	@Id
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "employer_id", nullable = false)
+	private Employer employer;
 	
 	public Qualification() {
 		

@@ -2,9 +2,12 @@ package com.topjobs.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -12,7 +15,7 @@ public class Post {
 	@Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "post_Sequence")
     @SequenceGenerator(name = "post_Sequence", sequenceName = "POST_SEQ", initialValue=1, allocationSize=1)
-    private Long id;
+    private Long post_id;
 	
 	@Column(name = "jobCategory")
 	String jobCategory;
@@ -20,8 +23,8 @@ public class Post {
 	@Column(name = "jobTitle")
 	String jobTitle;
 	
-	@Column(name = "company")
-	String company;
+	/*@Column(name = "company")
+	String company;*/
 	
 	@Column(name = "city")
 	String city;
@@ -59,6 +62,14 @@ public class Post {
 	@Column(name = "education")
 	String education;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "employer_id", nullable = false)
+	private Employer employer;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "company_id", nullable = false)
+	private Company company;
+	
 	public Post() {
 		
 	}
@@ -79,13 +90,13 @@ public class Post {
 		this.jobTitle = jobTitle;
 	}
 
-	public String getCompany() {
+	/*public String getCompany() {
 		return company;
 	}
 
 	public void setCompany(String company) {
 		this.company = company;
-	}
+	}*/
 
 	public String getCity() {
 		return city;
@@ -183,14 +194,14 @@ public class Post {
 		this.education = education;
 	}
 	
-	public Post(String jobCategory ,String jobTitle, String company, String city, String state, String country, 
+	public Post(String jobCategory ,String jobTitle, String city, String state, String country, 
 			String pin,String jobType, double salary, String summary, String duties, String skills, String benefits,
 			int experience, String education) {
 		super();
 		
 		this.jobCategory = jobCategory;
 		this.jobTitle = jobTitle;
-		this.company = company;
+		
 		this.city = city;
 		this.state = state;
 		this.country = country;
